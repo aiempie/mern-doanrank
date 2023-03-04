@@ -3,11 +3,11 @@ const router = express.Router();
 const argon2 = require("argon2");
 const jwt = require("jsonwebtoken");
 
-const User = require("../model/User");
+const User = require("../../model/User");
 
 router.post("/register", async (req, res) => {
-  const { username, password } = req.body;
-
+  let { username, password } = req.body;
+  username = username.toUpperCase();
   // check validate
   if (!username || !password) {
     return res.status(400).json({
@@ -30,7 +30,7 @@ router.post("/register", async (req, res) => {
     //return token
     const accessToken = jwt.sign(
       { userId: newUser._id },
-      process.env.ACCESS_TOKEN_SECRET
+      process.env.ACCESS_TOKEN_SECRET || "doanrank"
     );
 
     res.json({
@@ -43,13 +43,13 @@ router.post("/register", async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Internal server error",
-      accessToken: accessToken,
     });
   }
 });
 
 router.post("/login", async (req, res) => {
-  const { username, password } = req.body;
+  let { username, password } = req.body;
+  username = username.toUpperCase();
 
   // Check validate
   if (!username || !password) {
@@ -62,7 +62,7 @@ router.post("/login", async (req, res) => {
   try {
     //check for exsting user
     const user = await User.findOne({ username });
-    if (!username) {
+    if (!user) {
       return res.status(400).json({
         success: false,
         message: "Incorrect username or password",
@@ -80,20 +80,18 @@ router.post("/login", async (req, res) => {
     //return token
     const accessToken = jwt.sign(
       { userId: user._id },
-      process.env.ACCESS_TOKEN_SECRET
+      process.env.ACCESS_TOKEN_SECRET || "doanrank"
     );
-
     res.json({
       success: true,
       message: "Login successfully",
-      accessToken,
+      accessToken: accessToken,
     });
   } catch (error) {
     console.log(error);
     res.status(500).json({
       success: false,
       message: "Internal server error",
-      accessToken: accessToken,
     });
   }
 });

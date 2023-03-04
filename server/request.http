@@ -1,16 +1,47 @@
-POST http://localhost:5000/api/v1/auth/register
+POST http://localhost:5005/api/v1/auth/register
 Content-Type: application/json
 
 {
-    "username": "User",
-    "password": "passwords"
+    "username": "admin",
+    "password": "password"
 }
 
 ###
-POST http://localhost:5000/api/v1/auth/login
+POST http://localhost:5005/api/v1/auth/login
 Content-Type: application/json
 
 {
-    "username": "User",
-    "password": "passwords"
+    "username": "admin",
+    "password": "password"
 }
+
+###
+POST http://localhost:5005/api/v1/games
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDAzYzhjZDNhMGUyODIwY2YxMzA1OWQiLCJpYXQiOjE2Nzc5NzIxMzF9.ZJOlk9RKi1ShXpINfcTAJ_lEj6AfRhgVqI5fZNldKQk
+
+{
+    "gameName": "Liêndsd",
+    "gameImage": "https://i.imgur.com/cXRItlH.jpg",
+    "gameIcon" : "https://i.imgur.com/voDOiRT.jpg",
+    "comingSoon": true
+}
+
+###
+GET http://localhost:5005/api/v1/games
+
+###
+PUT http://localhost:5005/api/v1/games/6403d2af97a4c6bd78cc474b
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDAzYzhjZDNhMGUyODIwY2YxMzA1OWQiLCJpYXQiOjE2Nzc5NzIxMzF9.ZJOlk9RKi1ShXpINfcTAJ_lEj6AfRhgVqI5fZNldKQk
+
+{
+    "gameName": "Liên Quân Mobile",
+    "gameImage": "https://i.imgur.com/cXRItlH.jpg",
+    "gameIcon" : "https://i.imgur.com/voDOiRT.jpg",
+    "comingSoon": true
+}
+###
+DELETE http://localhost:5005/api/v1/games/6403d89d1b4757444bf621ad
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDAzYzhjZDNhMGUyODIwY2YxMzA1OWQiLCJpYXQiOjE2Nzc5NzIxMzF9.ZJOlk9RKi1ShXpINfcTAJ_lEj6AfRhgVqI5fZNldKQk
+

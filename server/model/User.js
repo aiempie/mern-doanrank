@@ -1,5 +1,5 @@
-const mongoose = require("mongoose")
-const Schema = mongoose.Schema
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
   username: {
@@ -10,6 +10,11 @@ const UserSchema = new Schema({
   password: {
     type: String,
     require: true,
+  },
+  role: {
+    type: String,
+    enum: ["ADMIN", "USER", "MOD"],
+    default: "USER",
   },
   guessRankScore: {
     type: Number,
@@ -25,4 +30,4 @@ const UserSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model('users',UserSchema)
+module.exports = mongoose.model("users", UserSchema);

@@ -12,8 +12,8 @@ const RankSchema = new Schema({
   },
   rankGame: {
     type: Schema.Types.ObjectId,
-    ref: "category",
+    ref: "games",
   },
 });
 
-module.exports = mongoose.model("rank", RankSchema);
+module.exports = mongoose.model("ranks", RankSchema);

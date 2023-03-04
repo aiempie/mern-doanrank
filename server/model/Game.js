@@ -1,21 +1,21 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const CategorySchema = new Schema({
-  categoryName: {
+const gameSchema = new Schema({
+  gameName: {
     type: String,
     require: true,
     unique: true,
   },
-  categoryImage: {
+  gameImage: {
     type: String,
     require: true,
   },
-  categoryIcon: {
+  gameIcon: {
     type: String,
     require: true,
   },
-  comingSoon:{
+  comingSoon: {
     type: Boolean,
     require: true,
   },
@@ -25,4 +25,4 @@ const CategorySchema = new Schema({
   },
 });
 
-module.exports = mongoose.model("category", CategorySchema);
+module.exports = mongoose.model("games", gameSchema);
