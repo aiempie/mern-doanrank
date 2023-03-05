@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../../model/User");
 
 router.post("/register", async (req, res) => {
-  let { username, password } = req.body;
+  let { username, password, email } = req.body;
   username = username.toUpperCase();
   // check validate
   if (!username || !password) {
@@ -24,7 +24,7 @@ router.post("/register", async (req, res) => {
       });
     }
     const hashPass = await argon2.hash(password);
-    const newUser = new User({ username, password: hashPass });
+    const newUser = new User({ username, password: hashPass, email });
     await newUser.save();
 
     //return token
