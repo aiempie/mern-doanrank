@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
+
+h3 {
+  font-family: Quicksand;
+}
+
+.alert {
+  width: 90%;
+  margin: 10px auto;
+  padding: 5px;
+  position: relative;
+  border-radius: 5px;
+  box-shadow: 0 0 15px 5px #ccc;
+}
+.no-margin {
+  margin: 0;
+}
+.simple-alert {
+  background-color: #ebebeb;
+  border-left: 5px solid #8c8c8c;
+}
+
+.success-alert {
+  background-color: #a8f0c6;
+  border-left: 5px solid #68b687;
+}
+
+.danger-alert {
+  background-color: #f7a7a3;
+  border-left: 5px solid #de7062;
+}
+
+.warning-alert {
+  background-color: #ffd48a;
+  border-left: 5px solid #e0ac31;
+}

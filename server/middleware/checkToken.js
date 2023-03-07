@@ -18,6 +18,7 @@ const verifyToken = (req, res, next) => {
       process.env.ACCESS_TOKEN_SECRET || "doanrank"
     );
     User.findOne({ _id: checkToken.userId })
+      .select("-password")
       .then((data) => {
         if (data) {
           req.user = data;

@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #262422, #1f1c18);
+}
+.MuiAppBar-colorPrimary {
+  background: linear-gradient(to right, #262422, #1f1c18);
+}
+.d-flex {
+  display: flex !important;
+}
+
+.justify-content-center {
+  justify-content: center !important;
+}
+
+.mt-2 {
+  margin-top: 8px;
+}
+.ml-2 {
+  margin-left: 8px;
+}
+.justify-content-sp-ar {
+  justify-content: space-around;
+}
+.align-content-sp-ar {
+  max-width: 900px;
+  flex-wrap: wrap;
+  align-content: space-around;
+  margin: 20px;
+}

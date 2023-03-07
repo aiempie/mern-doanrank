@@ -4,6 +4,19 @@ const argon2 = require("argon2");
 const jwt = require("jsonwebtoken");
 
 const User = require("../../model/User");
+const verifyToken = require("../../middleware/checkToken");
+
+router.get("/", verifyToken, async (req, res) => {
+  try {
+    res.json({ success: true, user: req.user });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+});
 
 router.post("/register", async (req, res) => {
   let { username, password, email } = req.body;

@@ -1,8 +1,15 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
+import FullGame from "../../views/FullGame/FullGame";
+// import { Navigate } from "react-router-dom";
+import ButtonAppBar from "../sidebar/NavBar";
 
 function Home() {
-  return <Navigate to="/login" replace={true} />;
+  return (
+    <div>
+      <ButtonAppBar />
+      <FullGame />
+    </div>
+  );
 }
 
 export default Home;

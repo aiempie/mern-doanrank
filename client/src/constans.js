@@ -3,4 +3,7 @@ export const apiUrl =
     ? "http://localhost:5005/api/v1"
     : "deploy url";
 
-export const LOCA_STORAGE_TOKEN_NAME = "doanrank";
+export const LOCAL_STORAGE_TOKEN_NAME = "accessToken";
+export const FETCH_GAMES_FAIL = "FETCH_GAMES_FAIL";
+export const FETCH_GAMES_SUCCESS = "FETCH_GAMES_SUCCESS";
+export const SET_AUTH = "SET_AUTH";
