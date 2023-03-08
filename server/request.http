@@ -24,28 +24,32 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDAzYzhjZDNhMGUyODIwY2YxMzA1OWQiLCJpYXQiOjE2Nzc5NzIxMzF9.ZJOlk9RKi1ShXpINfcTAJ_lEj6AfRhgVqI5fZNldKQk
 
 {
-    "gameName": "Liêndsd",
-    "gameImage": "https://i.imgur.com/cXRItlH.jpg",
-    "gameIcon" : "https://i.imgur.com/voDOiRT.jpg",
-    "comingSoon": true
+    "gameName": "CS:GO",
+    "gameImage": "https://i.imgur.com/Da88fQC.jpg",
+    "gameIcon" : "https://i.imgur.com/MWf8ZVr.png",
+    "comingSoon": true,
+    "isVideo": true,
+    "isDoanTenTuong": false
 }
 
 ###
 GET http://localhost:5005/api/v1/games
 
 ###
-PUT http://localhost:5005/api/v1/games/6403d2af97a4c6bd78cc474b
+PUT http://localhost:5005/api/v1/games/6407e0d03ac91233c98edd64
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDAzYzhjZDNhMGUyODIwY2YxMzA1OWQiLCJpYXQiOjE2Nzc5NzIxMzF9.ZJOlk9RKi1ShXpINfcTAJ_lEj6AfRhgVqI5fZNldKQk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDAzYzhjZDNhMGUyODIwY2YxMzA1OWQiLCJpYXQiOjE2NzgyMzUwNjN9.2CL4313MNQOKXgT9qZBPfAEeY68PL7lCBeot6NVD8U4
 
 {
-    "gameName": "Liên Quân Mobile",
-    "gameImage": "https://i.imgur.com/cXRItlH.jpg",
-    "gameIcon" : "https://i.imgur.com/voDOiRT.jpg",
-    "comingSoon": true
+     "gameName": "CS:GO",
+   "gameImage": "https://i.imgur.com/Da88fQC.jpg",
+    "gameIcon" : "https://i.imgur.com/tjkNm2b.png",
+    "comingSoon": true,
+    "isVideo": true,
+    "isDoanTenTuong": false
 }
 ###
-DELETE http://localhost:5005/api/v1/games/6403d89d1b4757444bf621ad
+DELETE http://localhost:5005/api/v1/games/6407d6c192a159e6191ce4b7
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDAzYzhjZDNhMGUyODIwY2YxMzA1OWQiLCJpYXQiOjE2Nzc5NzIxMzF9.ZJOlk9RKi1ShXpINfcTAJ_lEj6AfRhgVqI5fZNldKQk
 
 ### 

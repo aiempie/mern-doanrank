@@ -19,6 +19,16 @@ const gameSchema = new Schema({
     type: Boolean,
     require: true,
   },
+  isVideo: {
+    type: Boolean,
+    require: true,
+    default: true,
+  },
+  isDoanTenTuong: {
+    type: Boolean,
+    require: true,
+    default: false,
+  },
   createAt: {
     type: Date,
     default: Date.now,

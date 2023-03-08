@@ -3,6 +3,7 @@ import { AuthContext } from "../../contexts/authContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { BounceLoader } from "react-spinners";
+import ButtonAppBar from "../sidebar/NavBar";
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
   let navigate = useNavigate();
@@ -19,6 +20,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
   } else if (isAuthenticated) {
     return (
       <>
+        <ButtonAppBar />
         <Component {...rest} />
       </>
     );

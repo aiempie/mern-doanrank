@@ -20,6 +20,8 @@ export default function TemporaryDrawer({ state, setState, toggleDrawer }) {
   } = useContext(GameContext);
 
   //start: get list games
+  let videoGame = [];
+  let tuongGame;
   useEffect(() => {
     getGames();
   }, []);
@@ -38,39 +40,52 @@ export default function TemporaryDrawer({ state, setState, toggleDrawer }) {
     >
       <List>
         <h3 className="ml-2 ">Xem clip đoán rank</h3>
-        {games.map((item, index) => (
-          <ListItem key={index} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <CardMedia
-                  component="img"
-                  sx={{
-                    width: 30,
-                    height: 30,
-                    objectFit: "cover",
-                  }}
-                  image={item.gameIcon}
-                  alt={item.gameName}
-                ></CardMedia>
-              </ListItemIcon>
-              <ListItemText primary={item.gameName} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        {games
+          .filter((item) => item.isVideo === true)
+          .map((item, index) => (
+            <ListItem key={index} disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <CardMedia
+                    component="img"
+                    sx={{
+                      width: 30,
+                      height: 30,
+                      objectFit: "cover",
+                    }}
+                    image={item.gameIcon}
+                    alt={item.gameName}
+                  ></CardMedia>
+                </ListItemIcon>
+                <ListItemText primary={item.gameName} />
+              </ListItemButton>
+            </ListItem>
+          ))}
       </List>
       <Divider />
       <List>
         <h3 className="ml-2 ">Dùng dữ kiện đoán tướng</h3>
-        {["Liên Minh", "Liên Quân", "Dota 2"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        {games
+          .filter((item) => item.isDoanTenTuong === true)
+          .map((item, index) => (
+            <ListItem key={index} disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <CardMedia
+                    component="img"
+                    sx={{
+                      width: 30,
+                      height: 30,
+                      objectFit: "cover",
+                    }}
+                    image={item.gameIcon}
+                    alt={item.gameName}
+                  ></CardMedia>
+                </ListItemIcon>
+                <ListItemText primary={item.gameName} />
+              </ListItemButton>
+            </ListItem>
+          ))}
       </List>
       <Divider />
     </Box>

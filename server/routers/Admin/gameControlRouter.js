@@ -23,7 +23,8 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", verifyToken, checkMod, async (req, res) => {
-  const { gameName, gameImage, gameIcon, comingSoon } = req.body;
+  const { gameName, gameImage, gameIcon, comingSoon, isVideo, isDoanTenTuong } =
+    req.body;
 
   //check game name
   if (!gameName) {
@@ -45,6 +46,8 @@ router.post("/", verifyToken, checkMod, async (req, res) => {
       gameImage,
       gameIcon: gameIcon || "https://i.imgur.com/KtNA4Ar.png",
       comingSoon: comingSoon || false,
+      isVideo,
+      isDoanTenTuong,
     });
     await newGame.save();
     res.json({
@@ -62,7 +65,8 @@ router.post("/", verifyToken, checkMod, async (req, res) => {
 });
 
 router.put("/:id", verifyToken, checkMod, async (req, res) => {
-  const { gameName, gameImage, gameIcon, comingSoon } = req.body;
+  const { gameName, gameImage, gameIcon, comingSoon, isVideo, isDoanTenTuong } =
+    req.body;
   //check game name
   if (!gameName) {
     return res.status(400).json({
@@ -76,6 +80,8 @@ router.put("/:id", verifyToken, checkMod, async (req, res) => {
       gameImage,
       gameIcon: gameIcon || "https://i.imgur.com/KtNA4Ar.png",
       comingSoon: comingSoon || false,
+      isVideo,
+      isDoanTenTuong,
     };
 
     updateGame = await Game.findOneAndUpdate(

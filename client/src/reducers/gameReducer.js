@@ -13,7 +13,7 @@ export const GameReducer = (state, acton) => {
     case FETCH_GAMES_FAIL:
       return {
         ...state,
-        games: payload,
+        games: [],
         gamesLoading: false,
       };
     default:
