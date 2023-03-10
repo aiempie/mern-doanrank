@@ -55,3 +55,42 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDAzY
 ### 
 POST http://localhost:5005/api/v1/mod/6406647b95e6a2a9e5325d23
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDAzYzhjZDNhMGUyODIwY2YxMzA1OWQiLCJpYXQiOjE2Nzc5NzIxMzF9.ZJOlk9RKi1ShXpINfcTAJ_lEj6AfRhgVqI5fZNldKQk
+
+###
+POST http://localhost:5005/api/v1/clips/getclip/
+Content-Type: application/json
+
+{
+    "game_id": "6403b6807e0924428c5f9e04"
+}
+
+###
+POST http://localhost:5005/api/v1/clips/addclip/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDAzYzhjZDNhMGUyODIwY2YxMzA1OWQiLCJpYXQiOjE2NzgzNzM4MzN9.5PqgYXwYs_9R58s5yAZ2A2Vt4iyhyHUFDTZxUtozU6I
+
+{
+    "linkClip" : "https://www.youtube.com/watch?v=u_K4KRqBXkc",
+    "game_id": "6403b6807e0924428c5f9e04",
+    "rank_id": "6403b6807e0924428c5f9e04",
+    "credited": "Rankdle"
+}
+
+###
+POST http://localhost:5005/api/v1/ranks/addrank/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDAzYzhjZDNhMGUyODIwY2YxMzA1OWQiLCJpYXQiOjE2NzgzNzM4MzN9.5PqgYXwYs_9R58s5yAZ2A2Vt4iyhyHUFDTZxUtozU6I
+
+{
+    "rankName" : "Thách Đấu",
+    "game_id": "6403b6807e0924428c5f9e04",
+    "rankImage": "https://i.imgur.com/HgGEsF0.png"
+}
+
+###
+GET http://localhost:5005/api/v1/ranks/getrank
+Content-Type: application/json
+
+{
+    "game_id": "6403b6807e0924428c5f9e04"
+}

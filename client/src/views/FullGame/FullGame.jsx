@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { BounceLoader } from "react-spinners";
 import GameCard from "../../components/GameItem/GameCard";
 import { GameContext } from "../../contexts/gameContext";
@@ -7,13 +7,7 @@ function FullGame() {
   //context
   const {
     gameState: { games, gamesLoading },
-    getGames,
   } = useContext(GameContext);
-
-  //start: get list games
-  useEffect(() => {
-    getGames();
-  }, []);
 
   let body = "";
 

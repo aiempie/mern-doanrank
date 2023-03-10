@@ -10,7 +10,7 @@ const RankSchema = new Schema({
   rankImage: {
     type: String,
   },
-  rankGame: {
+  game_id: {
     type: Schema.Types.ObjectId,
     ref: "games",
   },

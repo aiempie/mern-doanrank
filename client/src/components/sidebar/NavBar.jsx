@@ -8,9 +8,11 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Login, ExitToApp } from "@mui/icons-material";
 import TemporaryDrawer from "./SideBar";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/authContext";
+import { CardMedia } from "@mui/material";
+import logoImage from "../../assets/imgs/logo.png";
 
 export default function ButtonAppBar() {
   let navigate = useNavigate();
@@ -58,8 +60,20 @@ export default function ButtonAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            GUESS WHAT
+          <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
+            <Link to="/">
+              <CardMedia
+                component="img"
+                sx={{
+                  height: "60px",
+                  width: "330px",
+                  objectFit: "contain",
+                  marginLeft: "30px",
+                }}
+                image={logoImage}
+                alt={"Guess What"}
+              ></CardMedia>
+            </Link>
           </Typography>
           {isAuthenticated ? (
             <>

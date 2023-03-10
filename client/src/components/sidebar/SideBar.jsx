@@ -7,10 +7,10 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import { GameContext } from "../../contexts/gameContext";
 import { CardMedia } from "@mui/material";
+import { selectGameContext } from "../../contexts/selectGameContext";
+import { useNavigate } from "react-router-dom";
 
 export default function TemporaryDrawer({ state, setState, toggleDrawer }) {
   //context
@@ -19,12 +19,20 @@ export default function TemporaryDrawer({ state, setState, toggleDrawer }) {
     getGames,
   } = useContext(GameContext);
 
+  const { setSelectGameState } = useContext(selectGameContext);
+
   //start: get list games
-  let videoGame = [];
-  let tuongGame;
   useEffect(() => {
     getGames();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  let navigate = useNavigate();
+
+  const gotoClip = (e) => {
+    setSelectGameState(e);
+    navigate("/xem-clip-doan-rank");
+  };
 
   const list = (anchor) => (
     <Box
@@ -43,7 +51,11 @@ export default function TemporaryDrawer({ state, setState, toggleDrawer }) {
         {games
           .filter((item) => item.isVideo === true)
           .map((item, index) => (
-            <ListItem key={index} disablePadding>
+            <ListItem
+              key={index}
+              disablePadding
+              onClick={() => gotoClip(item._id)}
+            >
               <ListItemButton>
                 <ListItemIcon>
                   <CardMedia

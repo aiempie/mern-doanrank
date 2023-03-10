@@ -7,11 +7,13 @@ const GameCard = ({ gameInfo }) => {
 
   return (
     <Card
+      className="card-hover"
       key={_id}
       sx={{
         backgroundColor: "#2d434f",
         margin: "10px",
         marginTop: "0",
+        cursor: "pointer",
       }}
     >
       <CardMedia
@@ -29,6 +31,7 @@ const GameCard = ({ gameInfo }) => {
       />
       <CardContent>
         <Typography
+          className="hover-red"
           gutterBottom
           variant="span"
           component="div"
