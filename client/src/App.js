@@ -27,7 +27,7 @@ function App() {
                 element={<ProtectedRoute component={FullGame} />}
               />
               <Route
-                path="/xem-clip-doan-rank"
+                path="/xem-clip-doan-rank/:slug"
                 element={<ProtectedRoute component={DoanClip} />}
               />
             </Routes>

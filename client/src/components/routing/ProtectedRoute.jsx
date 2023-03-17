@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { BounceLoader } from "react-spinners";
 import ButtonAppBar from "../sidebar/NavBar";
+import Footer from "../footer/Footer";
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
   let navigate = useNavigate();
@@ -21,7 +22,10 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
     return (
       <>
         <ButtonAppBar />
-        <Component {...rest} />
+        <div style={{ marginTop: "60px" }}>
+          <Component {...rest} />
+        </div>
+        <Footer />
       </>
     );
   } else return navigate("/login");

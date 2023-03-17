@@ -7,12 +7,14 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Login, ExitToApp } from "@mui/icons-material";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import TemporaryDrawer from "./SideBar";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/authContext";
-import { CardMedia } from "@mui/material";
+import { Badge, CardMedia } from "@mui/material";
 import logoImage from "../../assets/imgs/logo.png";
+import { pink } from "@mui/material/colors";
 
 export default function ButtonAppBar() {
   let navigate = useNavigate();
@@ -48,7 +50,7 @@ export default function ButtonAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
           <IconButton
             size="large"
@@ -66,29 +68,43 @@ export default function ButtonAppBar() {
                 component="img"
                 sx={{
                   height: "60px",
-                  width: "330px",
+                  width: "300px",
                   objectFit: "contain",
-                  marginLeft: "30px",
+                  marginLeft: "10px",
                 }}
                 image={logoImage}
                 alt={"Guess What"}
               ></CardMedia>
             </Link>
           </Typography>
-          {isAuthenticated ? (
-            <>
-              <span>Hello {user.username}</span>
-              <Button color="inherit" onClick={logout}>
-                <ExitToApp />
-                <span>Logout</span>
+          <div className="hello-user">
+            {isAuthenticated ? (
+              <>
+                <Badge
+                  badgeContent={user.timesNumber}
+                  color="success"
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "right",
+                  }}
+                >
+                  <FavoriteIcon sx={{ color: pink[500] }} fontSize="large" />
+                </Badge>
+                <span style={{ marginLeft: "10px" }}>
+                  Hello {user.username}
+                </span>
+                <Button color="inherit" onClick={logout}>
+                  <ExitToApp />
+                  <span>Logout</span>
+                </Button>
+              </>
+            ) : (
+              <Button color="inherit" onClick={login}>
+                <Login />
+                <span>Login</span>
               </Button>
-            </>
-          ) : (
-            <Button color="inherit" onClick={login}>
-              <Login />
-              <span>Login</span>
-            </Button>
-          )}
+            )}
+          </div>
         </Toolbar>
       </AppBar>
       <TemporaryDrawer

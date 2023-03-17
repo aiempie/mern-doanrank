@@ -33,7 +33,19 @@ const GameContextProvider = ({ children }) => {
     }
   };
 
-  const gameContextData = { gameState, getGames };
+  //find game
+  const findGame = async (idGame) => {
+    try {
+      const response = await axios.get(`${apiUrl}/games/${idGame}`);
+      return response.data.game;
+    } catch (error) {
+      return error.response.data
+        ? error.response.data
+        : { success: false, message: "Server error" };
+    }
+  };
+
+  const gameContextData = { gameState, getGames, findGame };
 
   return (
     <GameContext.Provider value={gameContextData}>

@@ -1,0 +1,15 @@
+.table_item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.table_image {
+  width: 55px;
+  height: 55px;
+}
+
+.no_padding {
+  padding: 0 !important;
+}

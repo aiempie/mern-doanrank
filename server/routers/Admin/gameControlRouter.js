@@ -6,12 +6,29 @@ const verifyToken = require("../../middleware/checkToken");
 const checkAdmin = require("../../middleware/checkAdmin");
 const checkMod = require("../../middleware/checkMod");
 
+//get all game
 router.get("/", async (req, res) => {
   try {
     const games = await Game.find({});
     res.json({
       success: true,
       listGames: games,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+});
+//get game by id
+router.get("/:id", async (req, res) => {
+  try {
+    const game = await Game.findById(req.params.id);
+    res.json({
+      success: true,
+      game: game,
     });
   } catch (error) {
     console.log(error);

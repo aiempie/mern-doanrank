@@ -4,6 +4,7 @@ const rankControlRouter = require("./Admin/rankControlRouter");
 const gameControlRouter = require("./Admin/gameControlRouter");
 const modControlRouter = require("./Admin/modControRouter");
 const GameClipRouter = require("./Clips/GameClipRouter");
+const SubmitRankRouter = require("./Clips/SubmitRankRouter");
 
 const routes = (app) => {
   app.use(express.json());
@@ -12,6 +13,7 @@ const routes = (app) => {
   app.use("/api/v1/games", gameControlRouter);
   app.use("/api/v1/mod", modControlRouter);
   app.use("/api/v1/clips", GameClipRouter);
+  app.use("/api/v1/submitclip", SubmitRankRouter);
 };
 
 module.exports = routes;

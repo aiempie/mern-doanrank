@@ -7,6 +7,11 @@ body {
 .MuiAppBar-colorPrimary {
   background: linear-gradient(to right, #262422, #1f1c18);
 }
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .d-flex {
   display: flex !important;
 }
@@ -50,4 +55,33 @@ body {
   flex-wrap: wrap;
   align-content: space-around;
   margin: 20px;
+}
+.hello-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hello-user span:hover {
+  color: rgba(241, 81, 81, 0.5);
+  cursor: pointer;
+}
+.hello-user-sidebar {
+  display: none;
+  position: absolute;
+  bottom: 0;
+}
+.footer {
+  width: 100%;
+  height: 200px;
+}
+
+@media only screen and (max-width: 768px) {
+  .hello-user {
+    display: none;
+  }
+  .hello-user-sidebar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

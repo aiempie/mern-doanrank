@@ -24,9 +24,9 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDAzYzhjZDNhMGUyODIwY2YxMzA1OWQiLCJpYXQiOjE2Nzc5NzIxMzF9.ZJOlk9RKi1ShXpINfcTAJ_lEj6AfRhgVqI5fZNldKQk
 
 {
-    "gameName": "CS:GO",
-    "gameImage": "https://i.imgur.com/Da88fQC.jpg",
-    "gameIcon" : "https://i.imgur.com/MWf8ZVr.png",
+    "gameName": "Valorant",
+    "gameImage": "https://i.imgur.com/Ob14mqa.jpg",
+    "gameIcon" : "https://i.imgur.com/M2826nU.png",
     "comingSoon": true,
     "isVideo": true,
     "isDoanTenTuong": false
@@ -34,6 +34,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDAzY
 
 ###
 GET http://localhost:5005/api/v1/games
+
+###
+GET http://localhost:5005/api/v1/games/6403b6807e0924428c5f9e04
 
 ###
 PUT http://localhost:5005/api/v1/games/6407e0d03ac91233c98edd64
@@ -70,10 +73,10 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDAzYzhjZDNhMGUyODIwY2YxMzA1OWQiLCJpYXQiOjE2NzgzNzM4MzN9.5PqgYXwYs_9R58s5yAZ2A2Vt4iyhyHUFDTZxUtozU6I
 
 {
-    "linkClip" : "https://www.youtube.com/watch?v=u_K4KRqBXkc",
-    "game_id": "6403b6807e0924428c5f9e04",
-    "rank_id": "6403b6807e0924428c5f9e04",
-    "credited": "Rankdle"
+    "linkClip" : "https://www.youtube.com/embed/fZhw4Ou2H_E",
+    "game_id": "6413a5a552472ffa52e4ba90",
+    "rank_id": "6413adcfc38e00c6b7bca6cc",
+    "creditBy": "Rankdle"
 }
 
 ###
@@ -83,14 +86,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDAzY
 
 {
     "rankName" : "Thách Đấu",
-    "game_id": "6403b6807e0924428c5f9e04",
-    "rankImage": "https://i.imgur.com/HgGEsF0.png"
+    "game_id": "6403d2af97a4c6bd78cc474b",
+    "rankImage": "https://i.imgur.com/nBXs4bn.png",
+    "order": 9
 }
 
 ###
-GET http://localhost:5005/api/v1/ranks/getrank
-Content-Type: application/json
-
-{
-    "game_id": "6403b6807e0924428c5f9e04"
-}
+GET http://localhost:5005/api/v1/ranks/getrank/6413a5a552472ffa52e4ba90

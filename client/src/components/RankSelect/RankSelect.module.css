@@ -1,0 +1,38 @@
+.rank_card {
+  align-content: center;
+  align-items: center;
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font-family: Freeroad;
+  font-size: clamp(0.6rem, 3vw, 1rem);
+  font-weight: 500;
+  justify-content: center;
+  max-height: 100%;
+  max-width: 100%;
+  position: relative;
+  transition: all 0.3s;
+  -webkit-user-select: none;
+}
+
+.selected {
+  max-height: 130%;
+  background: radial-gradient(
+    circle,
+    #af9d67 10%,
+    #af9d67 0,
+    hsla(0, 0%, 100%, 0) 80%
+  );
+  transform: scale(1.3);
+  transition: transform 0.5s;
+}
+.rank_img {
+  max-height: 130%;
+  width: 95%;
+}
+.rank_title {
+  font-size: clamp(0.6rem, 2vw, 1rem);
+  text-align: center;
+}

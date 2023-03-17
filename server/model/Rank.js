@@ -5,7 +5,6 @@ const RankSchema = new Schema({
   rankName: {
     type: String,
     require: true,
-    unique: true,
   },
   rankImage: {
     type: String,
@@ -13,6 +12,10 @@ const RankSchema = new Schema({
   game_id: {
     type: Schema.Types.ObjectId,
     ref: "games",
+  },
+  order: {
+    type: Number,
+    default: 0,
   },
 });
 

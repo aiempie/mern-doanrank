@@ -8,9 +8,11 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { GameContext } from "../../contexts/gameContext";
-import { CardMedia } from "@mui/material";
+import { Button, CardMedia } from "@mui/material";
 import { selectGameContext } from "../../contexts/selectGameContext";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/authContext";
+import { ExitToApp, Login } from "@mui/icons-material";
 
 export default function TemporaryDrawer({ state, setState, toggleDrawer }) {
   //context
@@ -18,6 +20,10 @@ export default function TemporaryDrawer({ state, setState, toggleDrawer }) {
     gameState: { games },
     getGames,
   } = useContext(GameContext);
+  const {
+    authState: { isAuthenticated, user },
+    logoutUser,
+  } = useContext(AuthContext);
 
   const { setSelectGameState } = useContext(selectGameContext);
 
@@ -29,18 +35,28 @@ export default function TemporaryDrawer({ state, setState, toggleDrawer }) {
 
   let navigate = useNavigate();
 
-  const gotoClip = (e) => {
-    setSelectGameState(e);
-    navigate("/xem-clip-doan-rank");
+  const logout = () => {
+    logoutUser();
+    navigate("/");
+  };
+
+  const login = () => {
+    navigate("/login");
+  };
+
+  const gotoClip = async (e) => {
+    await setSelectGameState(e._id);
+    navigate(`/xem-clip-doan-rank/${e._id}`);
   };
 
   const list = (anchor) => (
     <Box
       sx={{
-        width: anchor === "top" || anchor === "bottom" ? "auto" : 250,
+        width: anchor === "top" || anchor === "bottom" ? "auto" : 260,
         background: "#607d8b",
         height: "100vh",
         color: "white",
+        position: "relative",
       }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
@@ -49,13 +65,9 @@ export default function TemporaryDrawer({ state, setState, toggleDrawer }) {
       <List>
         <h3 className="ml-2 ">Xem clip đoán rank</h3>
         {games
-          .filter((item) => item.isVideo === true)
+          .filter((item) => item.isVideo === true && item.comingSoon === true)
           .map((item, index) => (
-            <ListItem
-              key={index}
-              disablePadding
-              onClick={() => gotoClip(item._id)}
-            >
+            <ListItem key={index} disablePadding onClick={() => gotoClip(item)}>
               <ListItemButton>
                 <ListItemIcon>
                   <CardMedia
@@ -78,7 +90,9 @@ export default function TemporaryDrawer({ state, setState, toggleDrawer }) {
       <List>
         <h3 className="ml-2 ">Dùng dữ kiện đoán tướng</h3>
         {games
-          .filter((item) => item.isDoanTenTuong === true)
+          .filter(
+            (item) => item.isDoanTenTuong === true && item.comingSoon === true
+          )
           .map((item, index) => (
             <ListItem key={index} disablePadding>
               <ListItemButton>
@@ -100,6 +114,22 @@ export default function TemporaryDrawer({ state, setState, toggleDrawer }) {
           ))}
       </List>
       <Divider />
+      <div className="hello-user-sidebar">
+        {isAuthenticated ? (
+          <>
+            <span>Hello {user.username}</span>
+            <Button color="inherit" onClick={logout}>
+              <ExitToApp />
+              <span>Logout</span>
+            </Button>
+          </>
+        ) : (
+          <Button color="inherit" onClick={login}>
+            <Login />
+            <span>Login</span>
+          </Button>
+        )}
+      </div>
     </Box>
   );
 
