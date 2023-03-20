@@ -1,6 +1,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/node
 # Edit at https://www.toptal.com/developers/gitignore?templates=node
 
+*.http
 ### Node ###
 # Logs
 logs
@@ -140,5 +141,8 @@ dist
 
 # SvelteKit build / generate output
 .svelte-kit
+
+# Bỏ qua tất cả các file có đuôi .http
+*.http
 
 # End of https://www.toptal.com/developers/gitignore/api/node
