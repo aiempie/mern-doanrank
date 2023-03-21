@@ -7,6 +7,10 @@ const gameSchema = new Schema({
     require: true,
     unique: true,
   },
+  slug: {
+    type: String,
+    require: true,
+  },
   gameImage: {
     type: String,
     require: true,

@@ -34,8 +34,10 @@ function DoanClip() {
     gameName: "Game",
   });
   const [result, setResult] = useState();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     if (location !== selectGameState) {
       setSelectGameState(location);
       setSelect(0);
@@ -48,6 +50,7 @@ function DoanClip() {
       fetchRank(location)
         .then((data) => {
           setRanks(data);
+          setLoading(false);
         })
         .catch((error) => console.error(error));
     } else {
@@ -61,6 +64,7 @@ function DoanClip() {
       fetchRank(selectGameState)
         .then((data) => {
           setRanks(data);
+          setLoading(false);
         })
         .catch((error) => console.error(error));
     }
@@ -103,7 +107,7 @@ function DoanClip() {
     setResult();
   };
 
-  return (
+  const body = (
     <div className={styles.page_view_container}>
       <div className={styles.gutter_container}>
         <aside className={styles.left_gutter}></aside>
@@ -182,6 +186,21 @@ function DoanClip() {
         <aside className={styles.right_gutter}></aside>
       </div>
     </div>
+  );
+
+  return loading ? (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "300px",
+      }}
+    >
+      <div className="spinner"></div>
+    </div>
+  ) : (
+    body
   );
 }
 
