@@ -62,8 +62,12 @@ export default function ButtonAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-            <Link to="/">
+          <Typography
+            variant="h5"
+            component="div"
+            sx={{ display: "flex", justifyContent: "center", flexGrow: 1 }}
+          >
+            <Link to="/" className="logo">
               <CardMedia
                 component="img"
                 sx={{

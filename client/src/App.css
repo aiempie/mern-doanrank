@@ -101,3 +101,14 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.logo {
+  max-height: 100%;
+  transform: scale(1);
+  transition: all 0.5s ease-in-out;
+}
+
+.logo:hover {
+  max-height: 115%;
+  transform: scale(1.15);
+}

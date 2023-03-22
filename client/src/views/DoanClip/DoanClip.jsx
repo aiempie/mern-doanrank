@@ -105,83 +105,77 @@ function DoanClip() {
   };
 
   const body = (
-    <div className={styles.page_view_container}>
-      <div className={styles.gutter_container}>
-        <aside className={styles.left_gutter}></aside>
-        <div className={styles.clip_view}>
-          <div className={styles.rule}>
-            <CustomizedDialogs gameName={game.gameName} ranks={ranks} />
-          </div>
-          <h2 className={styles.score}>Điểm của bạn: {user.guessRankScore}</h2>
-          {!result ? (
-            <></>
-          ) : (
-            <>
-              <ResultClip
-                isOpen={true}
-                result={result}
-                refreshClip={refreshClipLog}
-                refreshNoLog={refreshNoLog}
-              />
-            </>
-          )}
-          {clip.isNullClip ? (
-            <>
-              <NoClipDialog isOpen={true} />{" "}
-            </>
-          ) : (
-            <>
-              <div className={styles.clip_player_wrapper}>
-                <div className={styles.youtube_player_wrapper}>
-                  <CardMedia
-                    className={styles.youtube_media}
-                    component="iframe"
-                    src={clip.linkClip}
-                  ></CardMedia>
-                </div>
-              </div>
-              <h4>Credit: {clip.creditBy}</h4>
-              <div className={styles.ranks}>
-                <div className={styles.ranks_container}>
-                  {ranks.map((item, index) => {
-                    return (
-                      <div
-                        className={styles.rank_card_wrapper}
-                        onClick={() => selectRank(item.order)}
-                        key={index}
-                      >
-                        <RankSelect rank={item} isSelect={select} />
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-              <div className={styles.buttons_wrapper}>
-                <Button
-                  size="large"
-                  variant="contained"
-                  color="error"
-                  sx={{ borderRadius: "20px", width: "clamp(75px,18vw,150px)" }}
-                  onClick={() => refreshClipLog()}
-                >
-                  Đã Xem Clip
-                </Button>
-                <Button
-                  size="large"
-                  variant="contained"
-                  color="success"
-                  sx={{ borderRadius: "20px", width: "clamp(75px,18vw,150px)" }}
-                  disabled={select === 0}
-                  onClick={() => submit()}
-                >
-                  Xác Nhận
-                </Button>
-              </div>
-            </>
-          )}
-        </div>
-        <aside className={styles.right_gutter}></aside>
+    <div className={styles.clip_view}>
+      <div className={styles.rule}>
+        <CustomizedDialogs gameName={game.gameName} ranks={ranks} />
       </div>
+      <h2 className={styles.score}>Điểm của bạn: {user.guessRankScore}</h2>
+      {!result ? (
+        <></>
+      ) : (
+        <>
+          <ResultClip
+            isOpen={true}
+            result={result}
+            refreshClip={refreshClipLog}
+            refreshNoLog={refreshNoLog}
+          />
+        </>
+      )}
+      {clip.isNullClip ? (
+        <>
+          <NoClipDialog isOpen={true} />{" "}
+        </>
+      ) : (
+        <>
+          <div className={styles.clip_player_wrapper}>
+            <div className={styles.youtube_player_wrapper}>
+              <CardMedia
+                className={styles.youtube_media}
+                component="iframe"
+                src={clip.linkClip}
+              ></CardMedia>
+            </div>
+          </div>
+          <h4>Credit: {clip.creditBy}</h4>
+          <div className={styles.ranks}>
+            <div className={styles.ranks_container}>
+              {ranks.map((item, index) => {
+                return (
+                  <div
+                    className={styles.rank_card_wrapper}
+                    onClick={() => selectRank(item.order)}
+                    key={index}
+                  >
+                    <RankSelect rank={item} isSelect={select} />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          <div className={styles.buttons_wrapper}>
+            <Button
+              size="large"
+              variant="contained"
+              color="error"
+              sx={{ borderRadius: "20px", width: "clamp(75px,18vw,150px)" }}
+              onClick={() => refreshClipLog()}
+            >
+              Đã Xem Clip
+            </Button>
+            <Button
+              size="large"
+              variant="contained"
+              color="success"
+              sx={{ borderRadius: "20px", width: "clamp(75px,18vw,150px)" }}
+              disabled={select === 0}
+              onClick={() => submit()}
+            >
+              Xác Nhận
+            </Button>
+          </div>
+        </>
+      )}
     </div>
   );
 
