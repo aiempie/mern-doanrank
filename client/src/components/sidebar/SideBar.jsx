@@ -45,8 +45,8 @@ export default function TemporaryDrawer({ state, setState, toggleDrawer }) {
   };
 
   const gotoClip = async (e) => {
-    await setSelectGameState(e._id);
-    navigate(`/xem-clip-doan-rank/${e._id}`);
+    await setSelectGameState(e.slug);
+    navigate(`/xem-clip-doan-rank/${e.slug}`);
   };
 
   const list = (anchor) => (

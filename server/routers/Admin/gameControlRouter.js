@@ -23,9 +23,9 @@ router.get("/", async (req, res) => {
   }
 });
 //get game by id
-router.get("/:id", async (req, res) => {
+router.get("/:slug", async (req, res) => {
   try {
-    const game = await Game.findById(req.params.id);
+    const game = await Game.findOne({ slug: req.params.slug });
     res.json({
       success: true,
       game: game,
@@ -40,8 +40,15 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post("/", verifyToken, checkMod, async (req, res) => {
-  const { gameName, gameImage, gameIcon, comingSoon, isVideo, isDoanTenTuong } =
-    req.body;
+  const {
+    gameName,
+    slug,
+    gameImage,
+    gameIcon,
+    comingSoon,
+    isVideo,
+    isDoanTenTuong,
+  } = req.body;
 
   //check game name
   if (!gameName) {
@@ -60,6 +67,7 @@ router.post("/", verifyToken, checkMod, async (req, res) => {
     }
     const newGame = new Game({
       gameName,
+      slug,
       gameImage,
       gameIcon: gameIcon || "https://i.imgur.com/KtNA4Ar.png",
       comingSoon: comingSoon || false,
@@ -82,8 +90,15 @@ router.post("/", verifyToken, checkMod, async (req, res) => {
 });
 
 router.put("/:id", verifyToken, checkMod, async (req, res) => {
-  const { gameName, gameImage, gameIcon, comingSoon, isVideo, isDoanTenTuong } =
-    req.body;
+  const {
+    gameName,
+    slug,
+    gameImage,
+    gameIcon,
+    comingSoon,
+    isVideo,
+    isDoanTenTuong,
+  } = req.body;
   //check game name
   if (!gameName) {
     return res.status(400).json({
@@ -94,6 +109,7 @@ router.put("/:id", verifyToken, checkMod, async (req, res) => {
   try {
     let updateGame = {
       gameName,
+      slug,
       gameImage,
       gameIcon: gameIcon || "https://i.imgur.com/KtNA4Ar.png",
       comingSoon: comingSoon || false,

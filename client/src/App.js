@@ -8,6 +8,7 @@ import AuthContextProvider from "./contexts/authContext";
 import GameContextProvider from "./contexts/gameContext";
 import DoanClip from "./views/DoanClip/DoanClip";
 import SelectGameContextProvider from "./contexts/selectGameContext";
+import ListGame from "./views/ListGame/ListGame";
 
 function App() {
   return (
@@ -29,6 +30,10 @@ function App() {
               <Route
                 path="/xem-clip-doan-rank/:slug"
                 element={<ProtectedRoute component={DoanClip} />}
+              />
+              <Route
+                path="/games/:slug"
+                element={<ProtectedRoute component={ListGame} />}
               />
             </Routes>
           </Router>

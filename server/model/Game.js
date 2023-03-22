@@ -11,6 +11,10 @@ const gameSchema = new Schema({
     type: String,
     require: true,
   },
+  gameImage: {
+    type: String,
+    require: true,
+  },
   gameIcon: {
     type: String,
     require: true,

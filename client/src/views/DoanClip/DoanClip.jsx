@@ -41,32 +41,25 @@ function DoanClip() {
     if (location !== selectGameState) {
       setSelectGameState(location);
       setSelect(0);
-      fetchClip(location)
-        .then((data) => setClip(data))
-        .catch((error) => console.error(error));
       findGame(location)
-        .then((data) => setGame(data))
-        .catch((error) => console.error(error));
-      fetchRank(location)
         .then((data) => {
-          setRanks(data);
-          setLoading(false);
+          setGame(data);
+          fetchData(data._id);
         })
         .catch((error) => console.error(error));
     } else {
       setSelect(0);
-      fetchClip(selectGameState)
-        .then((data) => setClip(data))
-        .catch((error) => console.error(error));
       findGame(selectGameState)
-        .then((data) => setGame(data))
-        .catch((error) => console.error(error));
-      fetchRank(selectGameState)
         .then((data) => {
-          setRanks(data);
-          setLoading(false);
+          setGame(data);
+          fetchData(data._id);
         })
         .catch((error) => console.error(error));
+    }
+    async function fetchData(id) {
+      setClip(await fetchClip(id));
+      setRanks(await fetchRank(id));
+      setLoading(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location]);
@@ -117,7 +110,7 @@ function DoanClip() {
         <aside className={styles.left_gutter}></aside>
         <div className={styles.clip_view}>
           <div className={styles.rule}>
-            <CustomizedDialogs gameName={game.gameName} />
+            <CustomizedDialogs gameName={game.gameName} ranks={ranks} />
           </div>
           <h2 className={styles.score}>Điểm của bạn: {user.guessRankScore}</h2>
           {!result ? (

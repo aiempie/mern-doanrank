@@ -1,9 +1,16 @@
 import React from "react";
 import { Card, CardMedia, CardContent, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import styles from "./GameCard.module.css";
 
 const GameCard = ({ gameInfo }) => {
-  const { _id, gameName, gameImage, comingSoon } = gameInfo;
+  const { _id, gameName, gameImage, comingSoon, slug } = gameInfo;
+  // router
+  let navigate = useNavigate();
+
+  const handClickCard = () => {
+    navigate(`/games/${slug}`);
+  };
 
   return (
     <Card
@@ -15,6 +22,7 @@ const GameCard = ({ gameInfo }) => {
         marginTop: "0",
         cursor: "pointer",
       }}
+      onClick={comingSoon ? handClickCard : undefined}
     >
       <CardMedia
         className={comingSoon ? "" : styles.blur}

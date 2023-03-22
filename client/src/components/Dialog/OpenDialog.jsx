@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import PropTypes from "prop-types";
 import { styled } from "@mui/material/styles";
@@ -18,8 +18,6 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import styles from "./OpenDialog.module.css";
-import { fetchRank } from "../../services/RankService";
-import { selectGameContext } from "../../contexts/selectGameContext";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -64,9 +62,7 @@ BootstrapDialogTitle.propTypes = {
 };
 
 export default function CustomizedDialogs(props) {
-  //context
-  const { selectGameState } = useContext(selectGameContext);
-  const { gameName } = props;
+  const { gameName, ranks } = props;
 
   const [open, setOpen] = useState(false);
   const [trueRank, setTrueRank] = useState({
@@ -83,15 +79,10 @@ export default function CustomizedDialogs(props) {
   });
 
   useEffect(() => {
-    fetchRank(selectGameState)
-      .then((ranks) => {
-        setTrueRank(ranks.find((rank) => rank.order === 3));
-        setChooseRank(ranks.find((rank) => rank.order === 4));
-        setWrongRank(ranks.find((rank) => rank.order === 5));
-      })
-      .catch((error) => console.error(error));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    setTrueRank(ranks.find((rank) => rank.order === 3));
+    setChooseRank(ranks.find((rank) => rank.order === 4));
+    setWrongRank(ranks.find((rank) => rank.order === 5));
+  }, [ranks]);
 
   const handleClickOpen = () => {
     setOpen(true);

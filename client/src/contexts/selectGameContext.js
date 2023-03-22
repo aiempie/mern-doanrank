@@ -5,9 +5,7 @@ export const selectGameContext = createContext();
 
 const SelectGameContextProvider = ({ children }) => {
   //state
-  const [selectGameState, setSelectGameState] = useState(
-    "6403b6807e0924428c5f9e04"
-  );
+  const [selectGameState, setSelectGameState] = useState("lol");
 
   const SelectGameContextData = {
     selectGameState,

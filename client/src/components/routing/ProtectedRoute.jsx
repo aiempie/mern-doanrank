@@ -14,7 +14,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
 
   if (authLoading) {
     return (
-      <div className="spinner-container">
+      <div className="item-center">
         <BounceLoader color="#36d7b7" />
       </div>
     );
@@ -22,7 +22,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
     return (
       <>
         <ButtonAppBar />
-        <div style={{ marginTop: "60px" }}>
+        <div style={{ marginTop: "65px" }} className="item-center">
           <Component {...rest} />
         </div>
         <Footer />

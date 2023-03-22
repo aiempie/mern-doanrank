@@ -7,7 +7,7 @@ body {
 .MuiAppBar-colorPrimary {
   background: linear-gradient(to right, #262422, #1f1c18);
 }
-.spinner-container {
+.item-center {
   display: flex;
   justify-content: center;
   align-items: center;
