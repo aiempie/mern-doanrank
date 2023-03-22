@@ -83,7 +83,9 @@ function DoanClip() {
     if (user.timesNumber > 0) {
       submitRank(clip._id, select, selectGameState)
         .then((data) => setResult(data))
-        .then(() => loadUser())
+        .then(() => {
+          loadUser();
+        })
         .catch((error) => console.error(error));
     } else {
       setResult({
@@ -95,12 +97,14 @@ function DoanClip() {
   };
 
   const refreshClipLog = () => {
+    setLoading(true);
     logClip(clip._id, selectGameState);
     fetchClip(selectGameState)
       .then((data) => setClip(data))
       .catch((error) => console.error(error));
     setSelect(0);
     setResult();
+    setLoading(false);
   };
   const refreshNoLog = () => {
     setSelect(0);
@@ -123,7 +127,7 @@ function DoanClip() {
               <ResultClip
                 isOpen={true}
                 result={result}
-                refreshClipLog={refreshClipLog}
+                refreshClip={refreshClipLog}
                 refreshNoLog={refreshNoLog}
               />
             </>

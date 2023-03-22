@@ -149,6 +149,7 @@ input[type="checkbox"] + label {
   align-items: center;
   transition: 1s;
   height: 40px;
+  cursor: pointer;
 }
 .login_bg-active {
   position: absolute;
