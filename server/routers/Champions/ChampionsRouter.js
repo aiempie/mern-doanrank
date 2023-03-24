@@ -36,6 +36,29 @@ router.get("/getchampion/:id", async (req, res) => {
   }
 });
 
+router.get("/getonechampion/:id", async (req, res) => {
+  let _id = req.params.id;
+  try {
+    if (!_id) {
+      return res.status(401).json({
+        success: false,
+        message: "Missing id champ",
+      });
+    }
+    const champion = await Champion.findById(_id);
+    res.json({
+      success: true,
+      champion: champion,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+});
+
 router.post("/addchampion", verifyToken, checkMod, async (req, res) => {
   const {
     name,

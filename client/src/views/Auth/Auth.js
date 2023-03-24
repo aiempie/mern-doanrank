@@ -17,7 +17,7 @@ const Auth = (props) => {
       </div>
     );
   } else if (isAuthenticated) {
-    return navigate("/select-games");
+    return navigate("/games");
   } else {
     body = (
       <>

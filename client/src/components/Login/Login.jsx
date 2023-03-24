@@ -59,7 +59,7 @@ function Login(props) {
       setLoading(true);
       const loginData = await loginUser(loginForm);
       if (loginData.success) {
-        navigate("/select-games");
+        navigate("/games");
       } else {
         setAlert({ type: "danger", message: loginData.message });
         setTimeout(() => setAlert(null), 5000);
@@ -81,7 +81,7 @@ function Login(props) {
         setTimeout(() => {
           setAlert(null);
           loadUser();
-          navigate("/select-games");
+          navigate("/games");
         }, 2000);
       } else {
         setRegAlert({ type: "danger", message: registerData.message });

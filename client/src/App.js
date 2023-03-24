@@ -9,35 +9,46 @@ import GameContextProvider from "./contexts/gameContext";
 import DoanClip from "./views/DoanClip/DoanClip";
 import SelectGameContextProvider from "./contexts/selectGameContext";
 import ListGame from "./views/ListGame/ListGame";
+import Classic from "./views/Classic/Classic";
+import ChampionContextProvider from "./contexts/championContext";
 
 function App() {
   return (
     <AuthContextProvider>
       <GameContextProvider>
-        <SelectGameContextProvider>
-          <Router>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Auth isRegisterForm={false} />} />
-              <Route
-                path="/register"
-                element={<Auth isRegisterForm={true} />}
-              />
-              <Route
-                path="/select-games"
-                element={<ProtectedRoute component={FullGame} />}
-              />
-              <Route
-                path="/xem-clip-doan-rank/:slug"
-                element={<ProtectedRoute component={DoanClip} />}
-              />
-              <Route
-                path="/games/:slug"
-                element={<ProtectedRoute component={ListGame} />}
-              />
-            </Routes>
-          </Router>
-        </SelectGameContextProvider>
+        <ChampionContextProvider>
+          <SelectGameContextProvider>
+            <Router>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route
+                  path="/login"
+                  element={<Auth isRegisterForm={false} />}
+                />
+                <Route
+                  path="/register"
+                  element={<Auth isRegisterForm={true} />}
+                />
+                <Route
+                  path="/games"
+                  element={<ProtectedRoute component={FullGame} />}
+                />
+                <Route
+                  path="/games/xem-clip-doan-rank/:slug"
+                  element={<ProtectedRoute component={DoanClip} />}
+                />
+                <Route
+                  path="/games/:slug"
+                  element={<ProtectedRoute component={ListGame} />}
+                />
+                <Route
+                  path="/games/classic/:slug"
+                  element={<ProtectedRoute component={Classic} />}
+                />
+              </Routes>
+            </Router>
+          </SelectGameContextProvider>
+        </ChampionContextProvider>
       </GameContextProvider>
     </AuthContextProvider>
   );

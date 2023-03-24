@@ -3,6 +3,7 @@ body {
   margin: 0;
   padding: 0;
   background: linear-gradient(to right, #262422, #1f1c18);
+  color: aliceblue;
 }
 .MuiAppBar-colorPrimary {
   background: linear-gradient(to right, #262422, #1f1c18);
@@ -111,4 +112,12 @@ body {
 .logo:hover {
   max-height: 115%;
   transform: scale(1.15);
+}
+#champion-listbox {
+  padding: 0;
+}
+
+.MuiAutocomplete-option:focus,
+.MuiAutocomplete-option:hover {
+  background-color: #444444;
 }

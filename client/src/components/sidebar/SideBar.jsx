@@ -46,7 +46,11 @@ export default function TemporaryDrawer({ state, setState, toggleDrawer }) {
 
   const gotoClip = async (e) => {
     await setSelectGameState(e.slug);
-    navigate(`/xem-clip-doan-rank/${e.slug}`);
+    navigate(`/games/xem-clip-doan-rank/${e.slug}`);
+  };
+  const gotoChampion = async (e) => {
+    await setSelectGameState(e.slug);
+    navigate(`/games/classic/${e.slug}`);
   };
 
   const list = (anchor) => (
@@ -94,7 +98,11 @@ export default function TemporaryDrawer({ state, setState, toggleDrawer }) {
             (item) => item.isDoanTenTuong === true && item.comingSoon === true
           )
           .map((item, index) => (
-            <ListItem key={index} disablePadding>
+            <ListItem
+              key={index}
+              disablePadding
+              onClick={() => gotoChampion(item)}
+            >
               <ListItemButton>
                 <ListItemIcon>
                   <CardMedia

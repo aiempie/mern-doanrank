@@ -21,7 +21,7 @@ function NoClipDialog({ isOpen }) {
 
   const handleClose = () => {
     setOpen(false);
-    navigate("/select-games");
+    navigate("/games");
   };
   const submitClip = () => {};
 

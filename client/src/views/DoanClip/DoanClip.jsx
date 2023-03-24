@@ -23,7 +23,7 @@ function DoanClip() {
   } = useContext(AuthContext);
 
   const [clip, setClip] = useState({});
-  const location = useLocation().pathname.split("/")[2];
+  const location = useLocation().pathname.split("/")[3];
   const [select, setSelect] = useState(0);
   const [ranks, setRanks] = useState([
     {
@@ -190,8 +190,19 @@ function DoanClip() {
     >
       <div className="spinner"></div>
     </div>
-  ) : (
+  ) : game.isVideo ? (
     body
+  ) : (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "300px",
+      }}
+    >
+      Game đang được phát triển, vui lòng quay lại sau
+    </div>
   );
 }
 
