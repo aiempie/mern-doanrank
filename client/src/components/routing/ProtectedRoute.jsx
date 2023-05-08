@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { AuthContext } from "../../contexts/authContext";
-import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { BounceLoader } from "react-spinners";
 import ButtonAppBar from "../sidebar/NavBar";
@@ -13,13 +12,19 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
     authState: { authLoading, isAuthenticated },
   } = useContext(AuthContext);
 
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate("/login");
+    }
+  }, [isAuthenticated, navigate]);
+
   if (authLoading) {
     return (
       <div className="item-center">
         <BounceLoader color="#36d7b7" />
       </div>
     );
-  } else if (isAuthenticated) {
+  } else {
     return (
       <>
         <ButtonAppBar />
@@ -35,7 +40,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
         <Footer />
       </>
     );
-  } else return navigate("/login");
+  }
 };
 
 export default ProtectedRoute;
