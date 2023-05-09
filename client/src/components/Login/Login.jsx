@@ -45,9 +45,11 @@ function Login(props) {
     <section className="sign-in">
       <div className="form-content">
         {loading && <BarLoader width={400} />}
-        <div className="logo-login">
-          <img src={fav} alt="" />
-        </div>
+        <Link to="/">
+          <div className="logo-login">
+            <img src={fav} alt="" />
+          </div>
+        </Link>
         <h1 className="title">Đăng nhập</h1>
         <AlertMessage info={alert} />
         <form action="" onSubmit={loginOnSubmit}>

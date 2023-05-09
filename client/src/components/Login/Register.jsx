@@ -57,9 +57,11 @@ function Register() {
     <section className="signup">
       {loading && <BarLoader width={400} />}
       <div className="form-content">
-        <div className="logo-register">
-          <img src={fav} alt="" />
-        </div>
+        <Link to="/">
+          <div className="logo-register">
+            <img src={fav} alt="" />
+          </div>
+        </Link>
         <h1 className="title">Đăng ký</h1>
         <AlertMessage info={regAlert} />
         <form action="" onSubmit={registerOnSubmit}>
