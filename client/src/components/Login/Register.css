@@ -1,0 +1,113 @@
+.forgot-password,
+.signup,
+.sign-in {
+  min-width: 350px;
+  display: flex;
+  justify-content: center;
+}
+
+.forgot-password .title,
+.signup .title,
+.sign-in .title {
+  margin: 1rem 0 2rem;
+}
+
+.form-content {
+  background-color: rgba(2, 2, 2, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+  width: 100%;
+}
+
+.logo-forgot-password,
+.logo-register,
+.logo-login {
+  padding: 2px;
+  background-color: black;
+  border-radius: 100%;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  margin-top: -80px;
+}
+
+.logo-forgot-password img,
+.logo-register img,
+.logo-login img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 100%;
+}
+
+.btn-forgotPassword,
+.btn-register,
+.btn-login {
+  display: block;
+  margin-top: 1rem;
+  margin: auto;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  border-radius: 20px;
+  padding: 2px 30px;
+}
+
+.btn-forgotPassword:focus,
+.btn-register:focus,
+.btn-login:focus {
+  box-shadow: none;
+}
+
+.btn-forgotPassword:hover,
+.btn-register:hover,
+.btn-login:hover {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.356);
+  color: rgba(255, 255, 255, 0.356);
+}
+
+.link-login,
+.link-regiser {
+  text-align: center;
+  display: block;
+  margin-top: 1rem;
+  color: #19a7ce;
+  text-decoration: none !important;
+}
+
+.link-login:hover,
+.link-regiser:hover {
+  color: #19a7ceb2;
+}
+
+/* ++++++++++++++++++++ */
+/* Response */
+
+/* PC */
+@media (min-width: 1024px) {
+}
+
+/* Mobile - Tablet */
+@media (max-width: 1023px) {
+}
+
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1023px) {
+  .forgot-password,
+  .signup,
+  .sign-in {
+    width: 70%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 739px) {
+  .forgot-password,
+  .signup,
+  .sign-in {
+    width: 90%;
+  }
+}

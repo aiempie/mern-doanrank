@@ -3,6 +3,7 @@ import Login from "../../components/Login/Login";
 import { AuthContext } from "../../contexts/authContext";
 import { useNavigate } from "react-router-dom";
 import { BounceLoader } from "react-spinners";
+import Register from "../../components/Login/Register";
 
 const Auth = (props) => {
   let body;
@@ -20,9 +21,9 @@ const Auth = (props) => {
     return navigate("/games");
   } else {
     body = (
-      <>
-        <Login isRegisterForm={props.isRegisterForm} />
-      </>
+      <div className="content d-flex justify-content-center align-items-center">
+        {props.isRegisterForm ? <Register /> : <Login />}
+      </div>
     );
   }
   return <>{body}</>;

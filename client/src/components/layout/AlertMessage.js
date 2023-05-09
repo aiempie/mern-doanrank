@@ -3,8 +3,10 @@ import "./AlertMessage.css";
 
 const AlertMessage = ({ info }) => {
   return info === null ? null : (
-    <div className={`alert ${info.type}-alert`}>
-      <h3 className="no-margin">{info.message}</h3>
+    <div className={`alert ${info.type}-alert`} style={{ borderRadius: "5px" }}>
+      <h5 className="no-margin" style={{ color: "white" }}>
+        {info.message}
+      </h5>
     </div>
   );
 };
