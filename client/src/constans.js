@@ -1,7 +1,7 @@
 export const apiUrl =
   process.env.NODE_ENV !== "production"
     ? "http://localhost:5005/api/v1"
-    : "deploy url";
+    : process.env.REACT_APP_API_URL;
 
 export const LOCAL_STORAGE_TOKEN_NAME = "accessToken";
 export const LOCAL_STORAGE_CLIP = "fetchClip";
