@@ -37,13 +37,13 @@ router.post("/register", async (req, res) => {
       });
     }
     const hashPass = await argon2.hash(password);
-    const newUser = new User({ username, password: hashPass, email });
+    const newUser = new User({ username, password: hashPass, email, timesNumber: 5 });
     await newUser.save();
 
     //return token
     const accessToken = jwt.sign(
       { userId: newUser._id },
-      process.env.ACCESS_TOKEN_SECRET || "doanrank"
+      process.env.ACCESS_TOKEN_SECRET || "doanrank",
     );
 
     res.json({
@@ -93,7 +93,7 @@ router.post("/login", async (req, res) => {
     //return token
     const accessToken = jwt.sign(
       { userId: user._id },
-      process.env.ACCESS_TOKEN_SECRET || "doanrank"
+      process.env.ACCESS_TOKEN_SECRET || "doanrank",
     );
     res.json({
       success: true,
