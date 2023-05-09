@@ -1,5 +1,5 @@
 export const apiUrl =
-  process.env.NODE_ENV !== "production"
+  process.env.REACT_APP_NODE_ENV !== "production"
     ? "http://localhost:5005/api/v1"
     : process.env.REACT_APP_API_URL;
 
