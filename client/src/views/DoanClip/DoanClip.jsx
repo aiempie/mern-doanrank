@@ -45,6 +45,7 @@ function DoanClip() {
         .then((data) => {
           setGame(data);
           fetchData(data._id);
+          console.log("ss " + data);
         })
         .catch((error) => console.error(error));
     } else {
@@ -92,7 +93,7 @@ function DoanClip() {
   const refreshClipLog = () => {
     setLoading(true);
     logClip(clip._id, selectGameState);
-    fetchClip(selectGameState)
+    fetchClip(game._id)
       .then((data) => setClip(data))
       .catch((error) => console.error(error));
     setSelect(0);
